@@ -76,37 +76,12 @@
         <thead>
           <tr>
               <th>Name</th>
+              <th>Username</th>
               <th>Email Address</th>
-              <th>Picture</th>
-              <th>Status</th>
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>Alvin Eclair</td>
-            <td>Eclair@gmail.com</td>
-            <td><img src="img/boy.jpg" style="height: 100px; width: 100px"></td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>Alan Jellybean</td>
-            <td>Jellybean@gmail.com</td>
-            <td><img src="img/boy.jpg" style="height: 100px; width: 100px"></td>
-                        <td>Online</td>
-          </tr>
-          <tr>
-            <td>Christine Lollipop</td>
-            <td>Lollipop@gmail.com</td>
-            <td><img src="img/girl.jpg" style="height: 100px; width: 100px"></td>
-                        <td>Offline</td>
-          </tr>
-          <tr>
-            <td>Jamie Marshmallow</td>
-            <td>Marshmallow@gmail.com</td>
-            <td><img src="img/girl.jpg" style="height: 100px; width: 100px"></td>
-                        <td>Online</td>
-          </tr>
+        <tbody id="tblNames">
         </tbody>
       </table>
 
@@ -160,6 +135,25 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+
+  <script>
+  //function readUser(){
+    //edited out function so no need to have a button for refresh
+    let jns_retrieve = JSON.parse(localStorage.getItem('user'));
+
+    let html = ``;
+    jns_retrieve.map((user)=>{
+      html += `
+      <tr>
+        <td>${user.lname}, ${user.fname}</td>
+        <td>${user.uname}</td>
+        <td>${user.mail}</td>
+      </tr>
+      `;    
+    });
+    document.querySelector('#tblNames').innerHTML = html;
+    //}
+  </script>
 
   </body>
 </html>

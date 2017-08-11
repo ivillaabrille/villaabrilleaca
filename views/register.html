@@ -88,8 +88,8 @@
             <div class="row">
         <div class="input-field col s12">
                   <i class="material-icons prefix">email</i>
-          <input id="password" type="password" class="validate">
-          <label for="password">Username</label>
+          <input id="username" type="text" class="validate">
+          <label for="username">Username</label>
         </div>
       </div>
       <div class="row">
@@ -120,7 +120,7 @@
     </form>
   </div>
           <div class="row center">
-          <a href="/login" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Submit and proceed to the Login Page</a>
+          <a href="/login" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="createUser()">Submit and proceed to the Login Page</a>
         </div>
         </div>
       </div>
@@ -172,5 +172,48 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
 
+  <script>
+  let user = [{
+    fname: "admin",
+    lname: "account",
+    uname: "admin",
+    pword: "adminxd",
+    mail: "admin@admin.com"
+  }];
+  //localStorage.setItem('user',JSON.stringify(user));
+
+  let tmpUser = JSON.parse(localStorage.getItem('user'));
+  //tmpUser.map((user)=>{
+    //console.log(user.fname);
+    //console.log("============");
+  //});
+
+  function createUser(){
+    
+
+    let fname = document.querySelector('#first_name').value;
+    let lname = document.querySelector('#last_name').value;
+    let uname = document.querySelector('#username').value;
+    let pword = document.querySelector('#password').value;
+    let mail = document.querySelector('#email').value;
+    let newUser = {
+      fname: fname,
+      lname: lname,
+      uname: uname,
+      password: pword,
+      mail: mail
+    };
+
+
+
+    tmpUser.push(newUser);
+
+    console.log(user);
+    let jns = JSON.stringify(tmpUser);
+    localStorage.setItem('user',jns); 
+
+  } 
+
+  </script> 
   </body>
 </html>
