@@ -120,7 +120,7 @@
     </form>
   </div>
           <div class="row center">
-          <a href="/login" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="createUser()">Submit and proceed to the Login Page</a>
+          <button id="download-button" class="btn-large waves-effect waves-light teal lighten-1" onclick="createUser()">Submit and proceed to the Login Page</button>
         </div>
         </div>
       </div>
@@ -180,7 +180,7 @@
     pword: "adminxd",
     mail: "admin@admin.com"
   }];
-  localStorage.setItem('user',JSON.stringify(user));
+  //localStorage.setItem('user',JSON.stringify(user));
 
   let tmpUser = JSON.parse(localStorage.getItem('user'));
   //tmpUser.map((user)=>{
@@ -211,6 +211,8 @@
     console.log(user);
     let jns = JSON.stringify(tmpUser);
     localStorage.setItem('user',jns); 
+
+    window.location = "/login";
 
   } 
 
